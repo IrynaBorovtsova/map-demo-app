@@ -1,0 +1,20 @@
+{
+  "name": "mapDemo",
+  "authors": [
+    "Irina Borovtsova <borovtsova.iryna@gmail.com>"
+  ],
+  "description": "Test task",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.5",
+    "leaflet": "~0.7.7",
+    "angular-material": "~1.0.8",
+    "angular-leaflet-directive": "angular-leaflet#~0.10.0"
+  }
+}

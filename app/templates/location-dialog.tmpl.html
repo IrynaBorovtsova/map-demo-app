@@ -1,0 +1,31 @@
+<md-dialog aria-label="Edit" flex-gt-sm="40" flex="80" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Edit</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="svg/ic_clear_white_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <md-input-container class="md-block margin-clear">
+        <label>Latitude</label>
+        <input ng-model="location.lat">
+      </md-input-container>
+      <md-input-container class="md-block margin-clear">
+        <label>Longtitude</label>
+        <input ng-model="location.lng">
+      </md-input-container>
+      <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-click="cancel()">
+          Cancel
+        </md-button>
+        <md-button ng-click="ok()">
+          Apply
+        </md-button>
+      </md-dialog-actions>
+  </form>
+</md-dialog>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Map Demo</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+
+<body ng-app="mapDemoApp" ng-cloak layout="column" ng-controller="DemoAppCtrl">
+  <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <md-toolbar class="md-primary">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Reset" ng-click="reset()">
+        <md-icon md-svg-src="./svg/ic_sync_white_24px.svg" aria-label="reset"></md-icon>
+      </md-button>
+      <h2><span>Map Demo</span></h2>
+    </div>
+  </md-toolbar>
+  <md-content layout="row" layout-sm="column" flex>
+    <md-card flex-gt-sm="65" flex="100" class="map-container">
+      <!-- <leaflet-map></leaflet-map> -->
+      <leaflet lf-center="london" defaults="defaults" markers="markers" width="100%" height="{{mapHeight}}" event-broadcast="events" data-tap-disabled="true"></leaflet>
+    </md-card>
+    <md-card flex>
+      <div class="mdc-bg-primary panel-header">
+        <h2>Locations
+          <md-icon md-svg-src="./svg/ic_place_white_48px.svg" aria-label="locations" class="pull-right md-48"></md-icon>
+        </h2>
+        <small>Track your markers</small>
+      </div>
+      <md-list style="overflow:auto;">
+        <md-list-item ng-repeat="marker in markers">
+          <div class="md-list-item-text flex">
+            <div class="md-avatar inline">
+              <marker></marker>
+            </div>
+
+            <a class="note">
+              {{marker.address}}
+
+              <small class="latlng">{{marker.lat | decimals: 3}}
+                <md-tooltip>
+                  Latitude
+                </md-tooltip>
+              </small>
+              <small class="margin-right-10 latlng">{{marker.lng | decimals: 3}},
+                <md-tooltip>
+                  Longtitude
+                </md-tooltip>
+              </small>
+            </a>
+
+          </div>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-card>
+  </md-content>
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/leaflet/dist/leaflet.js"></script>
+  <script src="bower_components/angular-leaflet-directive/dist/angular-leaflet-directive.js"></script>
+
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+
+  <!-- endbuild -->
+</body>
+
+</html>
